@@ -1,0 +1,30 @@
+Not ortalaması
+#include <stdio.h>
+
+int main(void) {
+    int n;
+    printf("Ders sayisini giriniz: ");
+    scanf("%d", &n);
+
+    if (n <= 0) {
+        printf("Gecersiz ders sayisi.\n");
+        return 1;
+    }
+
+    double toplam = 0.0;
+    for (int i = 1; i <= n; i++) {
+        double not;
+        printf("%d. ders notunu giriniz (0-100): ", i);
+        scanf("%lf", &not);
+        if (not < 0 || not > 100) {
+            printf("Gecersiz not.\n");
+            return 1;
+        }
+        toplam += not;
+    }
+
+    double ortalama = toplam / n;
+    printf("\nOrtalama: %.2f\n", ortalama);
+
+    return 0;
+}
